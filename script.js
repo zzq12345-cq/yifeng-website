@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
     mobileMenu();
     contactForm();
     activeNav();
+    kpiCounter();
 });
 
 /* ---------- Header ---------- */
@@ -162,5 +163,45 @@ function contactForm() {
             btn.style.background = '#00875a';
             setTimeout(() => { form.reset(); btn.textContent = txt; btn.disabled = false; btn.style.background = ''; }, 2000);
         }, 800);
+    });
+}
+
+/* ---------- KPI Counter Animation ---------- */
+function kpiCounter() {
+    const kpis = document.querySelectorAll('.kpi strong[data-target]');
+    if (!kpis.length) return;
+
+    const animate = (el) => {
+        const target = el.dataset.target;
+        const isNum = /^\d+$/.test(target);
+        if (!isNum) { el.textContent = target; return; }
+
+        const end = parseInt(target, 10);
+        const duration = 1600;
+        const start = performance.now();
+
+        const step = (now) => {
+            const t = Math.min((now - start) / duration, 1);
+            // easeOutExpo
+            const ease = t === 1 ? 1 : 1 - Math.pow(2, -10 * t);
+            el.textContent = Math.round(end * ease);
+            if (t < 1) requestAnimationFrame(step);
+            else el.textContent = el.dataset.display || target;
+        };
+        requestAnimationFrame(step);
+    };
+
+    const obs = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+            if (e.isIntersecting) {
+                animate(e.target);
+                obs.unobserve(e.target);
+            }
+        });
+    }, { threshold: 0.5 });
+
+    kpis.forEach(el => {
+        el.textContent = '0';
+        obs.observe(el);
     });
 }

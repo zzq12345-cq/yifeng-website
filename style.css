@@ -24,7 +24,12 @@
 /* ---------- Reset ---------- */
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 html{font-size:17px;-webkit-font-smoothing:antialiased}
-body{font-family:var(--font);color:var(--grey-900);background:var(--white);line-height:1.8;overflow-x:hidden;font-size:17px}
+body{
+    font-family:var(--font);color:var(--grey-900);background:var(--white);
+    line-height:1.8;overflow-x:hidden;font-size:17px;
+    opacity:0;animation:pageIn .6s var(--ease) forwards;
+}
+@keyframes pageIn{to{opacity:1}}
 img{max-width:100%;display:block}
 a{text-decoration:none;color:inherit}
 button{font-family:var(--font)}
@@ -180,7 +185,16 @@ textarea:focus-visible{
 .page-hero{
     padding:140px 0 60px;
     background:var(--grey-900);
+    background-image:
+        radial-gradient(ellipse 80% 50% at 50% 0%,rgba(207,10,44,.08),transparent),
+        linear-gradient(180deg,rgba(255,255,255,.02) 0%,transparent 100%);
     text-align:center;
+    position:relative;
+    overflow:hidden;
+}
+.page-hero::after{
+    content:'';position:absolute;bottom:0;left:0;right:0;
+    height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.06),transparent);
 }
 .page-hero h1{
     font-size:clamp(28px,4vw,42px);font-weight:900;
@@ -260,8 +274,41 @@ textarea:focus-visible{
 .kpi strong{
     display:block;font-size:32px;font-weight:900;
     color:var(--grey-900);line-height:1.2;
+    font-variant-numeric:tabular-nums;
 }
 .kpi span{font-size:13px;color:var(--grey-400);letter-spacing:1px}
+
+/* ===================
+   CTA 行动号召横幅
+   =================== */
+.cta-banner{
+    padding:80px 0;
+    background:var(--grey-900);
+    text-align:center;
+    position:relative;
+    overflow:hidden;
+}
+.cta-banner::before{
+    content:'';position:absolute;inset:0;
+    background:radial-gradient(ellipse 60% 80% at 50% 50%,rgba(207,10,44,.1),transparent);
+}
+.cta-banner .container{position:relative;z-index:1}
+.cta-banner h2{
+    font-size:clamp(24px,3vw,36px);font-weight:900;
+    color:var(--white);margin-bottom:16px;
+}
+.cta-banner p{
+    font-size:16px;color:rgba(255,255,255,.5);
+    margin-bottom:32px;max-width:480px;margin-left:auto;margin-right:auto;
+}
+.cta-btn{
+    display:inline-block;padding:14px 40px;
+    font-size:15px;font-weight:600;
+    color:var(--white);background:var(--red);
+    border:none;cursor:pointer;
+    transition:background .3s var(--ease),transform .2s var(--ease);
+}
+.cta-btn:hover{background:var(--red-dark);transform:translateY(-2px)}
 
 /* ===================
    DIVISIONS – 三大业务大图卡片
