@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>厦门宜丰电子科技 - 精密包装与显示技术</title>
     <meta name="description" content="厦门宜丰电子科技有限公司，专注高级真空吸塑、发泡材料及液晶模组研发生产，服务三星、华为、京东方等全球领先电子企业。">
+    <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
@@ -19,7 +20,7 @@
                 <span class="logo-mark">YF</span>
                 <span class="logo-name">宜丰科技</span>
             </a>
-            <nav class="nav" id="nav">
+            <nav class="nav" id="nav" aria-label="主导航">
                 <a href="index.html" class="nav-link">首页</a>
                 <a href="about.html" class="nav-link">关于我们</a>
                 <a href="divisions.html" class="nav-link">业务板块</a>
@@ -36,11 +37,13 @@
     </header>
 
     <!-- ====== 英雄区：全屏大图 + 极简文案 ====== -->
-    <section class="hero" id="hero">
+    <section class="hero" id="hero" aria-label="首页轮播">
         <div class="hero-slider" id="heroSlider">
             <!-- Slide 1 -->
             <div class="hero-slide active">
-                <div class="hero-img" style="background-image:url('images/hero-cinematic.png')"></div>
+                <div class="hero-img">
+                    <img src="images/hero-cinematic.png" alt="宜丰电子科技现代化生产车间全景" width="1024" height="1024" fetchpriority="high">
+                </div>
                 <div class="hero-caption">
                     <h1>以科技守护精密</h1>
                     <p>从百级无尘车间到液晶模组，用创新连接未来</p>
@@ -49,7 +52,9 @@
             </div>
             <!-- Slide 2 -->
             <div class="hero-slide">
-                <div class="hero-img" style="background-image:url('images/cleanroom.png')"></div>
+                <div class="hero-img">
+                    <img src="images/cleanroom.png" alt="百级无尘自动化洁净生产线" width="1024" height="1024" loading="lazy">
+                </div>
                 <div class="hero-caption">
                     <h1>百级无尘制造</h1>
                     <p>自研自动化洁净产线，满足苹果、三星品质标准</p>
@@ -58,7 +63,9 @@
             </div>
             <!-- Slide 3 -->
             <div class="hero-slide">
-                <div class="hero-img" style="background-image:url('images/lcm-production.png')"></div>
+                <div class="hero-img">
+                    <img src="images/lcm-production.png" alt="LCM液晶模组生产线" width="1024" height="1024" loading="lazy">
+                </div>
                 <div class="hero-caption">
                     <h1>LCM 一站式方案</h1>
                     <p>从设计到量产，覆盖消费电子、工业控制、医疗设备</p>
@@ -68,14 +75,14 @@
         </div>
         <!-- 指示器 -->
         <div class="hero-dots">
-            <button class="dot active" data-i="0"></button>
-            <button class="dot" data-i="1"></button>
-            <button class="dot" data-i="2"></button>
+            <button class="dot active" data-i="0" aria-label="第1张幻灯片"></button>
+            <button class="dot" data-i="1" aria-label="第2张幻灯片"></button>
+            <button class="dot" data-i="2" aria-label="第3张幻灯片"></button>
         </div>
     </section>
 
     <!-- ====== 快讯条 ====== -->
-    <section class="ticker">
+    <section class="ticker" aria-label="最新动态">
         <div class="container">
             <div class="ticker-inner">
                 <span class="ticker-tag">最新动态</span>
@@ -85,11 +92,11 @@
     </section>
 
     <!-- ====== 关于我们：简介预览 ====== -->
-    <section class="about" id="about">
+    <section class="about" id="about" aria-label="关于我们">
         <div class="container">
             <div class="split">
                 <div class="split-media reveal">
-                    <img src="images/hero-banner.png" alt="宜丰生产车间" loading="lazy">
+                    <img src="images/hero-banner.png" alt="宜丰生产车间" width="1024" height="1024" loading="lazy">
                 </div>
                 <div class="split-text reveal">
                     <span class="label">关于宜丰</span>
@@ -97,22 +104,10 @@
                     <p>厦门宜丰电子科技有限公司设立于2015年，隶属道豐包装材料集团。公司专注高级真空吸塑成型产品开发与生产，通过ISO 9001:2015认证，是<strong>国家级高新技术企业</strong>。</p>
                     <p>为达成苹果和三星品质标准，投入近300万自研"百级无尘自动化洁净生产线"。已申报六项专利，十二项提案推进中。</p>
                     <div class="kpi-row">
-                        <div class="kpi">
-                            <strong>2015</strong>
-                            <span>创立年份</span>
-                        </div>
-                        <div class="kpi">
-                            <strong>6+</strong>
-                            <span>全国基地</span>
-                        </div>
-                        <div class="kpi">
-                            <strong>6</strong>
-                            <span>授权专利</span>
-                        </div>
-                        <div class="kpi">
-                            <strong>300万</strong>
-                            <span>研发投入</span>
-                        </div>
+                        <div class="kpi"><strong>2015</strong><span>创立年份</span></div>
+                        <div class="kpi"><strong>6+</strong><span>全国基地</span></div>
+                        <div class="kpi"><strong>6</strong><span>授权专利</span></div>
+                        <div class="kpi"><strong>300万</strong><span>研发投入</span></div>
                     </div>
                 </div>
             </div>
@@ -120,7 +115,7 @@
     </section>
 
     <!-- ====== 三大业务板块：预览入口 ====== -->
-    <section class="divisions" id="divisions">
+    <section class="divisions" id="divisions" aria-label="业务板块">
         <div class="container">
             <div class="section-head">
                 <span class="label">核心业务</span>
@@ -129,7 +124,7 @@
         </div>
         <div class="div-grid">
             <a href="divisions.html" class="div-card" id="card-thermoforming">
-                <img src="images/thermoforming.png" alt="吸塑包装" loading="lazy">
+                <img src="images/thermoforming.png" alt="吸塑包装" width="1024" height="1024" loading="lazy">
                 <div class="div-card-overlay"></div>
                 <div class="div-card-body">
                     <span class="div-card-num">01</span>
@@ -139,7 +134,7 @@
                 </div>
             </a>
             <a href="divisions.html" class="div-card" id="card-foam">
-                <img src="images/foam-materials.png" alt="发泡材料" loading="lazy">
+                <img src="images/foam-materials.png" alt="发泡材料" width="1024" height="1024" loading="lazy">
                 <div class="div-card-overlay"></div>
                 <div class="div-card-body">
                     <span class="div-card-num">02</span>
@@ -149,7 +144,7 @@
                 </div>
             </a>
             <a href="divisions.html" class="div-card" id="card-lcm">
-                <img src="images/lcm-production.png" alt="液晶模组" loading="lazy">
+                <img src="images/lcm-production.png" alt="液晶模组" width="1024" height="1024" loading="lazy">
                 <div class="div-card-overlay"></div>
                 <div class="div-card-body">
                     <span class="div-card-num">03</span>
@@ -162,40 +157,22 @@
     </section>
 
     <!-- ====== 合作伙伴预览 ====== -->
-    <section class="partners" id="partners">
+    <section class="partners" id="partners" aria-label="合作伙伴">
         <div class="container">
             <div class="section-head center">
                 <span class="label">合作伙伴</span>
                 <h2>携手行业领军企业</h2>
             </div>
             <div class="partner-grid">
-                <div class="partner-item">
-                    <img class="partner-logo" src="images/logos/tpk.png" alt="TPK 宸鸿科技">
-                </div>
-                <div class="partner-item">
-                    <img class="partner-logo" src="images/logos/cpt.png" alt="CPT 华映科技">
-                </div>
-                <div class="partner-item">
-                    <img class="partner-logo" src="images/logos/boe.png" alt="BOE 京东方">
-                </div>
-                <div class="partner-item">
-                    <img class="partner-logo" src="images/logos/tpv.png" alt="TPV 冠捷科技">
-                </div>
-                <div class="partner-item">
-                    <img class="partner-logo" src="images/logos/tongda.png" alt="通达集团">
-                </div>
-                <div class="partner-item">
-                    <img class="partner-logo" src="images/logos/hkc.jpg" alt="HKC 惠科">
-                </div>
-                <div class="partner-item">
-                    <img class="partner-logo" src="images/logos/mantix.jpg" alt="MANTIX 华佳彩">
-                </div>
-                <div class="partner-item">
-                    <img class="partner-logo" src="images/logos/xiashang.jpg" alt="夏商集团">
-                </div>
-                <div class="partner-item">
-                    <img class="partner-logo" src="images/logos/zhide.png" alt="智德医疗">
-                </div>
+                <div class="partner-item"><img class="partner-logo" src="images/logos/tpk.png" alt="TPK 宸鸿科技" width="140" height="50" loading="lazy"></div>
+                <div class="partner-item"><img class="partner-logo" src="images/logos/cpt.png" alt="CPT 华映科技" width="140" height="50" loading="lazy"></div>
+                <div class="partner-item"><img class="partner-logo" src="images/logos/boe.png" alt="BOE 京东方" width="140" height="50" loading="lazy"></div>
+                <div class="partner-item"><img class="partner-logo" src="images/logos/tpv.png" alt="TPV 冠捷科技" width="140" height="50" loading="lazy"></div>
+                <div class="partner-item"><img class="partner-logo" src="images/logos/tongda.png" alt="通达集团" width="140" height="50" loading="lazy"></div>
+                <div class="partner-item"><img class="partner-logo" src="images/logos/hkc.jpg" alt="HKC 惠科" width="140" height="50" loading="lazy"></div>
+                <div class="partner-item"><img class="partner-logo" src="images/logos/mantix.jpg" alt="MANTIX 华佳彩" width="140" height="50" loading="lazy"></div>
+                <div class="partner-item"><img class="partner-logo" src="images/logos/xiashang.jpg" alt="夏商集团" width="140" height="50" loading="lazy"></div>
+                <div class="partner-item"><img class="partner-logo" src="images/logos/zhide.png" alt="智德医疗" width="140" height="50" loading="lazy"></div>
             </div>
         </div>
     </section>
@@ -205,10 +182,7 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-brand">
-                    <div class="logo">
-                        <span class="logo-mark">YF</span>
-                        <span class="logo-name">宜丰科技</span>
-                    </div>
+                    <div class="logo"><span class="logo-mark">YF</span><span class="logo-name">宜丰科技</span></div>
                     <p>道豐包装材料有限公司 · 旗下企业</p>
                 </div>
                 <div class="footer-col">
@@ -237,9 +211,7 @@
         </div>
     </footer>
 
-    <!-- 回到顶部 -->
     <button class="btt" id="btt" aria-label="回到顶部">↑</button>
-
     <script src="script.js"></script>
 </body>
 </html>
