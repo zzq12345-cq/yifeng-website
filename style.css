@@ -543,8 +543,10 @@ textarea:focus-visible{
     left:50%;top:0;
     margin-left:-160px;
     text-align:center;
-    backface-visibility:hidden;
-    transition:opacity .6s var(--ease), filter .6s var(--ease), transform .8s var(--ease);
+    will-change:transform,opacity;
+    transition:transform 1s cubic-bezier(.25,.1,.25,1),
+               opacity .8s cubic-bezier(.25,.1,.25,1),
+               filter .8s cubic-bezier(.25,.1,.25,1);
 }
 .cert-carousel-item.active{
     opacity:1;filter:none;z-index:3;

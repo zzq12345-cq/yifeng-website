@@ -225,23 +225,24 @@ function certCarousel() {
 
     function place() {
         items.forEach((item, i) => {
-            // Calculate relative position
             let diff = ((i - cur) % total + total) % total;
             if (diff > total / 2) diff -= total;
 
-            const rot = diff * angle;
-            const tz = radius;
-            const tx = Math.sin(rot * Math.PI / 180) * tz;
-            const sc = diff === 0 ? 1 : 0.75;
-            const z = diff === 0 ? 10 : 1;
+            // Linear offset for smooth side-to-side motion
+            const tx = diff * 380;
+            const sc = diff === 0 ? 1 : 0.78;
+            const op = diff === 0 ? 1 : 0.45;
 
             item.style.transform = `translateX(${tx}px) scale(${sc})`;
-            item.style.zIndex = z;
-            item.classList.remove('active', 'prev', 'next', 'hidden');
+            item.style.opacity = op;
+            item.style.filter = diff === 0 ? 'none' : 'brightness(.55)';
+            item.style.zIndex = diff === 0 ? 10 : 5 - Math.abs(diff);
+            item.style.pointerEvents = Math.abs(diff) <= 1 ? 'auto' : 'none';
 
+            item.classList.remove('active', 'prev', 'next', 'hidden');
             if (diff === 0) item.classList.add('active');
-            else if (diff === -1 || diff === total - 1) item.classList.add('prev');
-            else if (diff === 1 || diff === -(total - 1)) item.classList.add('next');
+            else if (diff === -1) item.classList.add('prev');
+            else if (diff === 1) item.classList.add('next');
             else item.classList.add('hidden');
         });
 
