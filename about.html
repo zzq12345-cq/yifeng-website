@@ -140,45 +140,56 @@
                 </div>
             </div>
         </div>
-        <!-- 证书展示带 -->
+        <!-- 证书 3D 旋转展示 -->
         <div class="cert-banner">
             <div class="container">
-                <div class="cert-gallery">
-                    <!-- 国高证书 -->
-                    <div class="cert-gallery-item reveal">
-                        <div class="cert-banner-img">
-                            <img src="images/certs/gaoxin.png" alt="国家级高新技术企业证书" loading="lazy">
+                <div class="cert-carousel" id="certCarousel">
+                    <div class="cert-carousel-track">
+                        <!-- 国高证书 -->
+                        <div class="cert-carousel-item" data-i="0">
+                            <div class="cert-banner-img">
+                                <img src="images/certs/gaoxin.png" alt="国家级高新技术企业证书" loading="lazy">
+                            </div>
+                            <div class="cert-gallery-info">
+                                <span class="cert-badge">国家高新技术企业</span>
+                                <h4>高新技术企业证书</h4>
+                                <p>证书编号：GR202435101190</p>
+                                <p>发证日期：2024年12月02日</p>
+                            </div>
                         </div>
-                        <div class="cert-gallery-info">
-                            <span class="cert-badge">国家高新技术企业</span>
-                            <h4>高新技术企业证书</h4>
-                            <p>证书编号：GR202435101190</p>
-                            <p>发证日期：2024年12月02日</p>
+                        <!-- ISO 证书 -->
+                        <div class="cert-carousel-item" data-i="1">
+                            <div class="cert-banner-img">
+                                <img src="images/certs/iso9001.png" alt="ISO 9001:2015 质量管理体系认证证书" loading="lazy">
+                            </div>
+                            <div class="cert-gallery-info">
+                                <span class="cert-badge">ISO 9001:2015</span>
+                                <h4>质量管理体系认证证书</h4>
+                                <p>证书编号：10352025Q0183R0S</p>
+                                <p>有效期至：2028年06月12日</p>
+                            </div>
+                        </div>
+                        <!-- 食品包装生产许可证 -->
+                        <div class="cert-carousel-item" data-i="2">
+                            <div class="cert-banner-img">
+                                <img src="images/certs/food-license.jpg" alt="全国工业产品生产许可证" loading="lazy">
+                            </div>
+                            <div class="cert-gallery-info">
+                                <span class="cert-badge">生产许可证</span>
+                                <h4>食品包装生产许可证书</h4>
+                                <p>证书编号：闽XK16-204-00086</p>
+                                <p>有效期至：2026年03月01日</p>
+                            </div>
                         </div>
                     </div>
-                    <!-- ISO 证书 -->
-                    <div class="cert-gallery-item reveal">
-                        <div class="cert-banner-img">
-                            <img src="images/certs/iso9001.png" alt="ISO 9001:2015 质量管理体系认证证书" width="798" height="1119" loading="lazy">
-                        </div>
-                        <div class="cert-gallery-info">
-                            <span class="cert-badge">ISO 9001:2015</span>
-                            <h4>质量管理体系认证证书</h4>
-                            <p>证书编号：10352025Q0183R0S</p>
-                            <p>有效期至：2028年06月12日</p>
-                        </div>
-                    </div>
-                    <!-- 食品包装生产许可证 -->
-                    <div class="cert-gallery-item reveal">
-                        <div class="cert-banner-img">
-                            <img src="images/certs/food-license.jpg" alt="全国工业产品生产许可证" loading="lazy">
-                        </div>
-                        <div class="cert-gallery-info">
-                            <span class="cert-badge">生产许可证</span>
-                            <h4>食品包装生产许可证书</h4>
-                            <p>证书编号：闽XK16-204-00086</p>
-                            <p>有效期至：2026年03月01日</p>
-                        </div>
+                    <!-- 左右箭头 -->
+                    <button class="cert-arrow cert-prev" aria-label="上一张">‹</button>
+                    <button class="cert-arrow cert-next" aria-label="下一张">›</button>
+                    <!-- 指示点 -->
+                    <div class="cert-dots">
+                        <button class="cert-dot active" data-i="0" aria-label="第1张证书"></button>
+                        <button class="cert-dot" data-i="1" aria-label="第2张证书"></button>
+                        <button class="cert-dot" data-i="2" aria-label="第3张证书"></button>
                     </div>
                 </div>
             </div>

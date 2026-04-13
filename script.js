@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
     contactForm();
     activeNav();
     kpiCounter();
+    certCarousel();
 });
 
 /* ---------- Header ---------- */
@@ -204,4 +205,79 @@ function kpiCounter() {
         el.textContent = '0';
         obs.observe(el);
     });
+}
+
+/* ---------- Cert 3D Carousel ---------- */
+function certCarousel() {
+    const wrap = document.getElementById('certCarousel');
+    if (!wrap) return;
+
+    const items = wrap.querySelectorAll('.cert-carousel-item');
+    const dots = wrap.querySelectorAll('.cert-dot');
+    const prevBtn = wrap.querySelector('.cert-prev');
+    const nextBtn = wrap.querySelector('.cert-next');
+    const total = items.length;
+    if (!total) return;
+
+    let cur = 0, timer;
+    const angle = 360 / total;
+    const radius = 360; // px from center
+
+    function place() {
+        items.forEach((item, i) => {
+            // Calculate relative position
+            let diff = ((i - cur) % total + total) % total;
+            if (diff > total / 2) diff -= total;
+
+            const rot = diff * angle;
+            const tz = radius;
+            const tx = Math.sin(rot * Math.PI / 180) * tz;
+            const sc = diff === 0 ? 1 : 0.75;
+            const z = diff === 0 ? 10 : 1;
+
+            item.style.transform = `translateX(${tx}px) scale(${sc})`;
+            item.style.zIndex = z;
+            item.classList.remove('active', 'prev', 'next', 'hidden');
+
+            if (diff === 0) item.classList.add('active');
+            else if (diff === -1 || diff === total - 1) item.classList.add('prev');
+            else if (diff === 1 || diff === -(total - 1)) item.classList.add('next');
+            else item.classList.add('hidden');
+        });
+
+        dots.forEach((d, i) => d.classList.toggle('active', i === cur));
+    }
+
+    function go(i) {
+        cur = ((i % total) + total) % total;
+        place();
+    }
+
+    function autoPlay() { timer = setInterval(() => go(cur + 1), 4000); }
+    function stopPlay() { clearInterval(timer); }
+
+    // Events
+    prevBtn.addEventListener('click', () => { stopPlay(); go(cur - 1); autoPlay(); });
+    nextBtn.addEventListener('click', () => { stopPlay(); go(cur + 1); autoPlay(); });
+    dots.forEach(d => d.addEventListener('click', () => {
+        stopPlay(); go(+d.dataset.i); autoPlay();
+    }));
+
+    // Click on side items to navigate
+    items.forEach(item => item.addEventListener('click', () => {
+        const i = +item.dataset.i;
+        if (i !== cur) { stopPlay(); go(i); autoPlay(); }
+    }));
+
+    // Touch support
+    let sx = 0;
+    wrap.addEventListener('touchstart', e => { sx = e.changedTouches[0].screenX; stopPlay(); }, { passive: true });
+    wrap.addEventListener('touchend', e => {
+        const d = sx - e.changedTouches[0].screenX;
+        if (Math.abs(d) > 40) go(d > 0 ? cur + 1 : cur - 1);
+        autoPlay();
+    }, { passive: true });
+
+    place();
+    autoPlay();
 }
