@@ -544,7 +544,7 @@ textarea:focus-visible{
     margin-left:-160px;
     text-align:center;
     backface-visibility:hidden;
-    transition:opacity .6s var(--ease), filter .6s var(--ease);
+    transition:opacity .6s var(--ease), filter .6s var(--ease), transform .8s var(--ease);
 }
 .cert-carousel-item.active{
     opacity:1;filter:none;z-index:3;
