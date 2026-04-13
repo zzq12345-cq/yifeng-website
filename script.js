@@ -1,5 +1,5 @@
 /* =============================================
-   宜丰电子科技 – 交互脚本（华为级极简）
+   宜丰电子科技 – 交互脚本（多页版）
    ============================================= */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -10,38 +10,55 @@ document.addEventListener('DOMContentLoaded', () => {
     backToTop();
     mobileMenu();
     contactForm();
+    activeNav();
 });
 
 /* ---------- Header ---------- */
 function headerScroll() {
     const h = document.getElementById('header');
-    const links = document.querySelectorAll('.nav-link');
-    const sections = document.querySelectorAll('section[id]');
+    if (!h) return;
+
+    // 子页面没有 hero，header 直接显示白底
+    const hasHero = !!document.querySelector('.hero');
+
+    if (!hasHero) {
+        h.classList.add('scrolled');
+        return;
+    }
 
     const update = () => {
         h.classList.toggle('scrolled', scrollY > 60);
-
-        // Active link
-        const pos = scrollY + 200;
-        sections.forEach(s => {
-            const top = s.offsetTop, bot = top + s.offsetHeight;
-            if (pos >= top && pos < bot) {
-                const id = s.id;
-                links.forEach(l => {
-                    l.classList.toggle('active',
-                        l.getAttribute('href') === '#' + id);
-                });
-            }
-        });
     };
     addEventListener('scroll', update, { passive: true });
     update();
+}
+
+/* ---------- Active Nav (pathname) ---------- */
+function activeNav() {
+    const path = location.pathname.split('/').pop() || 'index.html';
+    const map = {
+        'index.html': '首页',
+        '': '首页',
+        'about.html': '关于我们',
+        'divisions.html': '业务板块',
+        'advantages.html': '核心优势',
+        'partners.html': '合作伙伴',
+        'contact.html': '联系我们'
+    };
+    const current = map[path];
+    if (!current) return;
+
+    document.querySelectorAll('.nav-link').forEach(l => {
+        l.classList.toggle('active', l.textContent.trim() === current);
+    });
 }
 
 /* ---------- Hero Slider ---------- */
 function heroSlider() {
     const slides = document.querySelectorAll('.hero-slide');
     const dots = document.querySelectorAll('.dot');
+    if (!slides.length || !dots.length) return;
+
     let cur = 0, timer;
 
     function go(i) {
@@ -62,12 +79,14 @@ function heroSlider() {
     // Touch
     let sx = 0;
     const el = document.querySelector('.hero');
-    el.addEventListener('touchstart', e => { sx = e.changedTouches[0].screenX; stop(); }, { passive: true });
-    el.addEventListener('touchend', e => {
-        const d = sx - e.changedTouches[0].screenX;
-        if (Math.abs(d) > 50) go(d > 0 ? (cur + 1) % slides.length : (cur - 1 + slides.length) % slides.length);
-        auto();
-    }, { passive: true });
+    if (el) {
+        el.addEventListener('touchstart', e => { sx = e.changedTouches[0].screenX; stop(); }, { passive: true });
+        el.addEventListener('touchend', e => {
+            const d = sx - e.changedTouches[0].screenX;
+            if (Math.abs(d) > 50) go(d > 0 ? (cur + 1) % slides.length : (cur - 1 + slides.length) % slides.length);
+            auto();
+        }, { passive: true });
+    }
 
     auto();
 }
@@ -75,6 +94,7 @@ function heroSlider() {
 /* ---------- Scroll Reveal ---------- */
 function scrollReveal() {
     const els = document.querySelectorAll('.reveal');
+    if (!els.length) return;
     const obs = new IntersectionObserver(entries => {
         entries.forEach(e => {
             if (e.isIntersecting) {
@@ -90,9 +110,11 @@ function scrollReveal() {
 function smoothScroll() {
     document.querySelectorAll('a[href^="#"]').forEach(a => {
         a.addEventListener('click', e => {
-            e.preventDefault();
-            const t = document.querySelector(a.getAttribute('href'));
+            const href = a.getAttribute('href');
+            if (!href || href === '#') return;
+            const t = document.querySelector(href);
             if (t) {
+                e.preventDefault();
                 const y = t.getBoundingClientRect().top + scrollY - 56;
                 scrollTo({ top: y, behavior: 'smooth' });
             }
@@ -103,6 +125,7 @@ function smoothScroll() {
 /* ---------- Back to Top ---------- */
 function backToTop() {
     const b = document.getElementById('btt');
+    if (!b) return;
     addEventListener('scroll', () => b.classList.toggle('visible', scrollY > 500), { passive: true });
     b.addEventListener('click', () => scrollTo({ top: 0, behavior: 'smooth' }));
 }
@@ -111,6 +134,7 @@ function backToTop() {
 function mobileMenu() {
     const btn = document.getElementById('hamburger');
     const nav = document.getElementById('nav');
+    if (!btn || !nav) return;
     btn.addEventListener('click', () => {
         btn.classList.toggle('open');
         nav.classList.toggle('open');
@@ -126,6 +150,7 @@ function mobileMenu() {
 /* ---------- Contact Form ---------- */
 function contactForm() {
     const form = document.getElementById('contactForm');
+    if (!form) return;
     form.addEventListener('submit', e => {
         e.preventDefault();
         const btn = form.querySelector('.submit-btn');

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>联系我们 - 厦门宜丰电子科技</title>
+    <meta name="description" content="联系厦门宜丰电子科技，获取吸塑包装、发泡材料、液晶模组专业咨询服务，24小时内回复方案。">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- ====== 导航栏 ====== -->
+    <header class="header" id="header">
+        <div class="header-inner">
+            <a href="index.html" class="logo">
+                <span class="logo-mark">YF</span>
+                <span class="logo-name">宜丰科技</span>
+            </a>
+            <nav class="nav" id="nav">
+                <a href="index.html" class="nav-link">首页</a>
+                <a href="about.html" class="nav-link">关于我们</a>
+                <a href="divisions.html" class="nav-link">业务板块</a>
+                <a href="advantages.html" class="nav-link">核心优势</a>
+                <a href="partners.html" class="nav-link">合作伙伴</a>
+                <a href="contact.html" class="nav-link">联系我们</a>
+            </nav>
+            <div class="header-right">
+                <button class="hamburger" id="hamburger" aria-label="菜单">
+                    <span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ====== 子页面横幅 ====== -->
+    <section class="page-hero">
+        <div class="container">
+            <h1>联系我们</h1>
+            <p class="breadcrumb"><a href="index.html">首页</a> / 联系我们</p>
+        </div>
+    </section>
+
+    <!-- ====== 联系我们 ====== -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="split">
+                <div class="split-text reveal">
+                    <span class="label">联系我们</span>
+                    <h2>期待与您合作</h2>
+                    <div class="contact-list">
+                        <div class="contact-row">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                            <div><strong>公司地址</strong><p>福建省厦门市</p></div>
+                        </div>
+                        <div class="contact-row">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                            <div><strong>电子邮箱</strong><p>info@yifeng-tech.com</p></div>
+                        </div>
+                        <div class="contact-row">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                            <div><strong>服务承诺</strong><p>客诉即时行动，24小时内回复方案</p></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="split-form reveal">
+                    <form id="contactForm">
+                        <div class="form-2col">
+                            <div class="form-field">
+                                <label for="contact-name">姓名 <span class="required">*</span></label>
+                                <input type="text" id="contact-name" name="name" placeholder="请输入姓名" required>
+                            </div>
+                            <div class="form-field">
+                                <label for="contact-company">公司名称</label>
+                                <input type="text" id="contact-company" name="company" placeholder="请输入公司名称">
+                            </div>
+                        </div>
+                        <div class="form-2col">
+                            <div class="form-field">
+                                <label for="contact-email">邮箱 <span class="required">*</span></label>
+                                <input type="email" id="contact-email" name="email" placeholder="请输入邮箱地址" required>
+                            </div>
+                            <div class="form-field">
+                                <label for="contact-phone">电话</label>
+                                <input type="tel" id="contact-phone" name="phone" placeholder="请输入联系电话">
+                            </div>
+                        </div>
+                        <div class="form-field">
+                            <label for="contact-type">咨询类型</label>
+                            <select id="contact-type" name="type">
+                                <option value="">请选择咨询类型</option>
+                                <option value="thermoforming">吸塑包装</option>
+                                <option value="foam">发泡材料</option>
+                                <option value="lcm">液晶模组 (LCM)</option>
+                                <option value="other">其他</option>
+                            </select>
+                        </div>
+                        <div class="form-field">
+                            <label for="contact-message">需求描述 <span class="required">*</span></label>
+                            <textarea id="contact-message" name="message" rows="4" placeholder="请描述您的需求..." required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">提交咨询</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====== 页脚 ====== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <span class="logo-mark">YF</span>
+                        <span class="logo-name">宜丰科技</span>
+                    </div>
+                    <p>道豐包装材料有限公司 · 旗下企业</p>
+                </div>
+                <div class="footer-col">
+                    <h5>业务板块</h5>
+                    <a href="divisions.html">吸塑包装事业部</a>
+                    <a href="divisions.html">发泡材料事业部</a>
+                    <a href="divisions.html">液晶模组事业部</a>
+                </div>
+                <div class="footer-col">
+                    <h5>关于</h5>
+                    <a href="about.html">公司介绍</a>
+                    <a href="advantages.html">核心优势</a>
+                    <a href="partners.html">合作伙伴</a>
+                </div>
+                <div class="footer-col">
+                    <h5>支持</h5>
+                    <a href="contact.html">联系方式</a>
+                    <a href="#">人才招聘</a>
+                    <a href="#">新闻中心</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>© 2015–2026 厦门宜丰电子科技有限公司</span>
+                <span>闽ICP备XXXXXXXX号</span>
+            </div>
+        </div>
+    </footer>
+
+    <button class="btt" id="btt" aria-label="回到顶部">↑</button>
+    <script src="script.js"></script>
+</body>
+</html>

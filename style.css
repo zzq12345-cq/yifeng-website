@@ -173,6 +173,27 @@ textarea:focus-visible{
 .dot.active{background:var(--white);width:48px}
 
 /* ===================
+   PAGE HERO – 子页面顶部横幅
+   =================== */
+.page-hero{
+    padding:140px 0 60px;
+    background:var(--grey-900);
+    text-align:center;
+}
+.page-hero h1{
+    font-size:clamp(28px,4vw,42px);font-weight:900;
+    color:var(--white);margin-bottom:12px;
+}
+.page-hero .breadcrumb{
+    font-size:13px;color:rgba(255,255,255,.4);
+}
+.page-hero .breadcrumb a{
+    color:rgba(255,255,255,.6);
+    transition:color .3s var(--ease);
+}
+.page-hero .breadcrumb a:hover{color:var(--white)}
+
+/* ===================
    TICKER – 新闻快讯条
    =================== */
 .ticker{
